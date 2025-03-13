@@ -17,6 +17,7 @@ export type mockDataType = {
 export type questionType = {
   question: string;
   answer: string;
+  type: "text" | "number";
 };
 
 export const mockData: mockDataType[] = [
@@ -107,37 +108,97 @@ export const randomQuestions: questionType[] = [
   {
     question: "¿Cuánto es 2 + 2?",
     answer: "4",
+    type: "number",
   },
   {
     question: "¿Cuánto es 7 - 3?",
     answer: "4",
+    type: "number",
   },
   {
     question: "¿Cuánto es 5 * 6?",
     answer: "30",
+    type: "number",
   },
   {
     question: "¿Cuánto es 12 / 4?",
     answer: "3",
+    type: "number",
   },
   {
     question: "¿Cuál es la raíz cuadrada de 81?",
     answer: "9",
+    type: "number",
   },
   {
     question: "Resuelve para x: x + 5 = 10",
     answer: "5",
+    type: "number",
   },
   {
     question: "Resuelve para x: 3x = 12",
     answer: "4",
+    type: "number",
   },
   {
     question: "¿Cuál es el 15% de 200?",
     answer: "30",
+    type: "number",
   },
   {
     question: "¿Cuál es el área de un triángulo con base 5 y altura 10?",
     answer: "25",
+    type: "number",
+  },
+  {
+    question: "¿Cuál es el planeta más cercano al sol?",
+    answer: "Mercurio",
+    type: "text",
+  },
+  {
+    question: "¿Qué gas es esencial para la respiración humana?",
+    answer: "Oxígeno",
+    type: "text",
+  },
+  {
+    question: "¿Cuál es el elemento químico con el símbolo H?",
+    answer: "Hidrógeno",
+    type: "text",
+  },
+  {
+    question: "¿Qué órgano del cuerpo humano bombea sangre?",
+    answer: "Corazón",
+    type: "text",
+  },
+  {
+    question:
+      "¿Cuál es el proceso por el cual las plantas producen su alimento?",
+    answer: "Fotosíntesis",
+    type: "text",
+  },
+  {
+    question: "¿Qué es HTML?",
+    answer: "Lenguaje de marcado para crear páginas web",
+    type: "text",
+  },
+  {
+    question: "¿Qué significa CSS?",
+    answer: "Hojas de estilo en cascada",
+    type: "text",
+  },
+  {
+    question: "¿Qué es JavaScript?",
+    answer: "Lenguaje de programación para la web",
+    type: "text",
+  },
+  {
+    question: "¿Qué es un navegador web?",
+    answer: "Software para acceder a internet",
+    type: "text",
+  },
+  {
+    question: "¿Qué es una URL?",
+    answer: "Dirección de una página web",
+    type: "text",
   },
 ];

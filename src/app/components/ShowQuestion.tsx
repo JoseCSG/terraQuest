@@ -82,9 +82,9 @@ export default function ShowQuestion({
             className="w-full grid mt-4 h-full gap-4"
           >
             <input
-              type="number"
+              type={question.type}
               name="answer"
-              className="w-full rounded-t-md p-2 "
+              className="w-full rounded-t-md p-2  focus:border-purple-950 border border-purple-500"
               placeholder="Answer"
             />
             {error && <p className="text-red-500">{error}</p>}

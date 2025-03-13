@@ -36,7 +36,7 @@ const FlipCard = React.forwardRef<FlipCardRef, FlipCardProps>(
 
     return (
       <div
-        className={`flex-col perspective-[1000px] rounded-md w-full ${className}`}
+        className={`flex-col perspective-[1000px] hover:cursor-pointer rounded-md w-full ${className}`}
       >
         <div className={`flip-card ${isFlipped ? "flipped" : ""}`}>
           <div
