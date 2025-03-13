@@ -13,6 +13,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/Logo.png" type="image/png" />
+      </head>
       <body className={`antialiased`}>{children}</body>
     </html>
   );
