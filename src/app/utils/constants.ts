@@ -131,6 +131,11 @@ export const randomQuestions: questionType[] = [
     type: "number",
   },
   {
+    question: "¿Cuál es la raíz cúbica de 729?",
+    answer: "9",
+    type: "number",
+  },
+  {
     question: "Resuelve para x: x + 5 = 10",
     answer: "5",
     type: "number",
