@@ -2,12 +2,12 @@ import Image from "next/image";
 
 export default function Navbar({ score }: { score: number }) {
   return (
-    <nav className="items-center justify-between bg-purple-900 px-4 py-6 rounded-bl-xl rounded-br-xl flex flex-row w-full">
+    <nav className="items-center justify-between bg-purple-900 px-4 py-1 rounded-bl-xl rounded-br-xl flex flex-row w-full">
       <div className="flex flex-row items-center gap-2">
         <Image
           src={"/Logo.png"}
-          width={50}
-          height={50}
+          width={100}
+          height={100}
           alt="TerraQuest Logo"
           unoptimized={true}
         />
@@ -15,8 +15,8 @@ export default function Navbar({ score }: { score: number }) {
           TerraQuest
         </p>
       </div>
-      <span className="text-white text-2xl font-bold">
-        Score: <span className="font-semibold">{score}</span>{" "}
+      <span className="text-white text-2xl font-bold pe-2">
+        Puntos: <span className="font-normal">{score}</span>{" "}
       </span>
     </nav>
   );
