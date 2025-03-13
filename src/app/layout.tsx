@@ -15,9 +15,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
-        <link rel="icon" href="/Logo.png" type="image/png" />
+        <link rel="icon" href="/Logo.png" type="image/png" sizes="48x48" />
       </Head>
-      <body className={`antialiased`}>{children}</body>
+      <body
+        className={`antialiased bg-gradient-to-b from-blue-950 to-65% to-blue-400`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

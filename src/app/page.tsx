@@ -15,7 +15,7 @@ export default function Home() {
     });
   }, []);
   return (
-    <main className="flex flex-col h-dvh items-center bg-gradient-to-b from-blue-950 to-65% to-blue-400 ">
+    <main className="flex flex-col items-center  ">
       <Navbar score={score} />
       <CardsGrid setScore={setScore} />
     </main>
