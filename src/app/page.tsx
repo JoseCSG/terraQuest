@@ -15,9 +15,9 @@ export default function Home() {
     });
   }, []);
   return (
-    <main className="flex flex-col items-center  ">
+    <>
       <Navbar score={score} />
       <CardsGrid setScore={setScore} />
-    </main>
+    </>
   );
 }

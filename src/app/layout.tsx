@@ -18,7 +18,7 @@ export default function RootLayout({
         <link rel="icon" href="/Logo.png" type="image/png" sizes="48x48" />
       </Head>
       <body
-        className={`antialiased bg-gradient-to-b from-blue-950 to-65% to-blue-400`}
+        className={`antialiased bg-gradient-to-b sm:h-dvh from-blue-950 to-65% to-blue-400`}
       >
         {children}
       </body>
