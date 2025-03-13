@@ -15,6 +15,7 @@ export default function ShowQuestion({ card }: { card: mockDataType }) {
     randomQuestions[Math.floor(Math.random() * randomQuestions.length)];
   const [open, setOpen] = useState<boolean>(false);
   const [alreadyAnswered, setAlreadyAnswered] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
   const flipCardRef = useRef<FlipCardRef>(null);
 
   useEffect(() => {
@@ -49,9 +50,9 @@ export default function ShowQuestion({ card }: { card: mockDataType }) {
         localStorage.setItem("cardsCollected", JSON.stringify(cardsCollected));
       }
       setOpen(false);
-      alert("Correct answer!");
       flipCard();
     }
+    setError("Respuesta incorrecta");
   }
 
   return (
@@ -78,6 +79,7 @@ export default function ShowQuestion({ card }: { card: mockDataType }) {
               className="w-full rounded-t-md p-2 "
               placeholder="Answer"
             />
+            {error && <p className="text-red-500">{error}</p>}
             <button
               type="submit"
               className="w-fit px-6 py-3  rounded-md mx-auto bg-purple-500 hover:bg-purple-900 hover:text-white transition-all duration-150"
