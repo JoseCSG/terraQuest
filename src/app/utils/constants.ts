@@ -57,8 +57,8 @@ export const mockData: mockDataType[] = [
     id: 5,
     name: "Jaguar",
     rarity: Rarity.legendary,
-    cardFront: "Jaguar.png",
-    cardBack: "JaguarBack.png",
+    cardFront: "10.png",
+    cardBack: "11.png",
     score: 1400,
   },
   {
