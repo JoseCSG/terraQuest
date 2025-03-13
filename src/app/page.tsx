@@ -1,5 +1,4 @@
 import CardsGrid from "./components/CardsGrid";
-
 export default async function Home() {
   return (
     <main className="flex flex-col h-dvh items-center bg-gradient-to-b from-blue-950 to-65% to-blue-400 ">

@@ -1,42 +1,63 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useImperativeHandle, useState } from "react";
 import { mockDataType } from "../utils/constants";
 
-interface FlipCardProps {
+export interface FlipCardProps {
   className?: string;
   card: mockDataType;
+  isAnswered?: boolean;
 }
 
-const FlipCard: React.FC<FlipCardProps> = ({ className = "", card }) => {
-  const [isFlipped, setIsFlipped] = useState<boolean>(false);
+// Define the ref type
+export interface FlipCardRef {
+  flipCard: () => void;
+}
 
-  useEffect(() => {
-    const cardsInLocalStorage = localStorage.getItem("cardsCollected");
-    if (!cardsInLocalStorage) return;
-    const cardsCollected = JSON.parse(cardsInLocalStorage);
-    if (cardsCollected.includes(card.id)) setIsFlipped(true);
-  }, [card]);
+const FlipCard = React.forwardRef<FlipCardRef, FlipCardProps>(
+  ({ className = "", card, isAnswered }, ref) => {
+    const [isFlipped, setIsFlipped] = useState<boolean>(false);
 
-  const handleClick = (): void => {
-    setIsFlipped(!isFlipped);
-  };
+    useEffect(() => {
+      const cardsInLocalStorage = localStorage.getItem("cardsCollected");
+      if (!cardsInLocalStorage) return;
+      const cardsCollected = JSON.parse(cardsInLocalStorage);
+      if (cardsCollected.includes(card.id)) setIsFlipped(true);
+    }, [card]);
 
-  return (
-    <div
-      className={` flex-col perspective-[1000px] rounded-md w-full ${className}`}
-      onClick={handleClick}
-    >
-      <div className={`flip-card ${isFlipped ? "flipped" : ""}`}>
-        <div className="flip-card-front bg-no-repeat md:bg-cover bg-contain bg-center bg-[url(/CardBack.png)]" />
-        <div
-          className={`flip-card-back bg-no-repeat bg-contain bg-center`}
-          style={{
-            backgroundImage: `url(/${card.image})`,
-          }}
-        />
+    useImperativeHandle(ref, () => ({
+      flipCard: () => setIsFlipped(true),
+    }));
+
+    useEffect(() => {
+      if (isAnswered) {
+        setIsFlipped(true);
+      }
+    }, [isAnswered]);
+
+    return (
+      <div
+        className={`flex-col perspective-[1000px] rounded-md w-full ${className}`}
+      >
+        <div className={`flip-card ${isFlipped ? "flipped" : ""}`}>
+          <div
+            className="flip-card-front bg-no-repeat bg-contain bg-center"
+            style={{
+              backgroundImage: `url(/${card.cardBack})`,
+            }}
+          />
+          <div
+            className={`flip-card-back bg-no-repeat bg-contain bg-center`}
+            style={{
+              backgroundImage: `url(/${card.cardFront})`,
+            }}
+          />
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+);
+
+// Add display name for development purposes
+FlipCard.displayName = "FlipCard";
 
 export default FlipCard;
