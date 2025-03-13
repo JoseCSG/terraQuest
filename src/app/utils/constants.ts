@@ -11,6 +11,7 @@ export type mockDataType = {
   rarity: Rarity;
   cardFront: string;
   cardBack: string;
+  score: number;
 };
 
 export type questionType = {
@@ -25,6 +26,7 @@ export const mockData: mockDataType[] = [
     rarity: Rarity.rare,
     cardFront: "Ajolote.png",
     cardBack: "AjoloteBack.png",
+    score: 1550,
   },
   {
     id: 2,
@@ -32,6 +34,7 @@ export const mockData: mockDataType[] = [
     rarity: Rarity.epic,
     cardFront: "Lobo.png",
     cardBack: "LoboBack.png",
+    score: 970,
   },
   {
     id: 3,
@@ -39,6 +42,7 @@ export const mockData: mockDataType[] = [
     rarity: Rarity.common,
     cardFront: "Ajolote.png",
     cardBack: "AjoloteBack.png",
+    score: 0,
   },
   {
     id: 4,
@@ -46,6 +50,7 @@ export const mockData: mockDataType[] = [
     rarity: Rarity.common,
     cardFront: "Ajolote.png",
     cardBack: "AjoloteBack.png",
+    score: 0,
   },
   {
     id: 5,
@@ -53,6 +58,7 @@ export const mockData: mockDataType[] = [
     rarity: Rarity.legendary,
     cardFront: "Ajolote.png",
     cardBack: "AjoloteBack.png",
+    score: 0,
   },
   {
     id: 6,
@@ -60,6 +66,7 @@ export const mockData: mockDataType[] = [
     rarity: Rarity.legendary,
     cardFront: "Ajolote.png",
     cardBack: "AjoloteBack.png",
+    score: 0,
   },
   {
     id: 7,
@@ -67,6 +74,7 @@ export const mockData: mockDataType[] = [
     rarity: Rarity.rare,
     cardFront: "Ajolote.png",
     cardBack: "AjoloteBack.png",
+    score: 0,
   },
   {
     id: 8,
@@ -74,6 +82,7 @@ export const mockData: mockDataType[] = [
     rarity: Rarity.epic,
     cardFront: "Ajolote.png",
     cardBack: "AjoloteBack.png",
+    score: 0,
   },
   {
     id: 9,
@@ -81,6 +90,7 @@ export const mockData: mockDataType[] = [
     rarity: Rarity.epic,
     cardFront: "Ajolote.png",
     cardBack: "AjoloteBack.png",
+    score: 0,
   },
   {
     id: 10,
@@ -88,6 +98,7 @@ export const mockData: mockDataType[] = [
     rarity: Rarity.rare,
     cardFront: "Ajolote.png",
     cardBack: "AjoloteBack.png",
+    score: 0,
   },
 ];
 
@@ -123,10 +134,6 @@ export const randomQuestions: questionType[] = [
   {
     question: "¿Cuál es el 15% de 200?",
     answer: "30",
-  },
-  {
-    question: "¿Cuál es el valor de π (pi) con dos decimales?",
-    answer: "3.14",
   },
   {
     question: "¿Cuál es el área de un triángulo con base 5 y altura 10?",

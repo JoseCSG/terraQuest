@@ -8,9 +8,15 @@ import {
 } from "@/components/ui/dialog";
 import { mockDataType, randomQuestions } from "../utils/constants";
 import FlipCard, { FlipCardRef } from "./FlipCard";
-import { useEffect, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 
-export default function ShowQuestion({ card }: { card: mockDataType }) {
+export default function ShowQuestion({
+  card,
+  setScore,
+}: {
+  card: mockDataType;
+  setScore: Dispatch<SetStateAction<number>>;
+}) {
   const question =
     randomQuestions[Math.floor(Math.random() * randomQuestions.length)];
   const [open, setOpen] = useState<boolean>(false);
@@ -40,6 +46,7 @@ export default function ShowQuestion({ card }: { card: mockDataType }) {
       const cardsInLocalStorage = localStorage.getItem("cardsCollected");
       if (!cardsInLocalStorage) {
         localStorage.setItem("cardsCollected", JSON.stringify([card.id]));
+        setScore((prev) => prev + card.score);
         setOpen(false);
         flipCard();
         return;
@@ -49,8 +56,9 @@ export default function ShowQuestion({ card }: { card: mockDataType }) {
         cardsCollected.push(card.id);
         localStorage.setItem("cardsCollected", JSON.stringify(cardsCollected));
       }
-      setOpen(false);
+      setScore((prev) => prev + card.score);
       flipCard();
+      setOpen(false);
     }
     setError("Respuesta incorrecta");
   }
