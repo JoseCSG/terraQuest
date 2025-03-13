@@ -52,6 +52,7 @@ export const mockData: mockDataType[] = [
     cardBack: "CactusBack.png",
     score: 500,
   },
+
   {
     id: 5,
     name: "Jaguar",
