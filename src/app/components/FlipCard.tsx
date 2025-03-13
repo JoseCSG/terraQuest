@@ -1,26 +1,25 @@
 "use client";
-import React, { useState } from "react";
-import { mockData } from "../utils/constants";
+import React, { useEffect, useState } from "react";
+import { mockDataType } from "../utils/constants";
 
 interface FlipCardProps {
   className?: string;
-  card: (typeof mockData)[0];
+  card: mockDataType;
 }
 
 const FlipCard: React.FC<FlipCardProps> = ({ className = "", card }) => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false);
 
+  useEffect(() => {
+    const cardsInLocalStorage = localStorage.getItem("cardsCollected");
+    if (!cardsInLocalStorage) return;
+    const cardsCollected = JSON.parse(cardsInLocalStorage);
+    if (cardsCollected.includes(card.id)) setIsFlipped(true);
+  }, [card]);
+
   const handleClick = (): void => {
     setIsFlipped(!isFlipped);
   };
-
-  function frontContent() {
-    return <div className="" />;
-  }
-
-  function backContent() {
-    return <div className="" />;
-  }
 
   return (
     <div
@@ -28,17 +27,13 @@ const FlipCard: React.FC<FlipCardProps> = ({ className = "", card }) => {
       onClick={handleClick}
     >
       <div className={`flip-card ${isFlipped ? "flipped" : ""}`}>
-        <div className="flip-card-front bg-gradient-to-br from-[#FFF7AD] to-[#FFa9f9]">
-          {frontContent()}
-        </div>
+        <div className="flip-card-front bg-no-repeat md:bg-cover bg-contain bg-center bg-[url(/CardBack.png)]" />
         <div
-          className={`flip-card-back bg-no-repeat bg-contain`}
+          className={`flip-card-back bg-no-repeat bg-contain bg-center`}
           style={{
             backgroundImage: `url(/${card.image})`,
           }}
-        >
-          {backContent()}
-        </div>
+        />
       </div>
     </div>
   );

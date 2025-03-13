@@ -12,6 +12,11 @@ export type mockDataType = {
   image: string;
 };
 
+export type questionType = {
+  question: string;
+  answer: string;
+};
+
 export const mockData: mockDataType[] = [
   {
     id: 1,
@@ -74,3 +79,5 @@ export const mockData: mockDataType[] = [
     image: "Ajolote.png",
   },
 ];
+
+export const randomQuestions: questionType[] = [];
