@@ -5,7 +5,7 @@ export default function Navbar({ score }: { score: number }) {
     <nav className="items-center justify-between bg-purple-900 px-4 py-6 rounded-bl-xl rounded-br-xl flex flex-row w-full">
       <div className="flex flex-row items-center gap-2">
         <Image
-          src={"/logo.png"}
+          src={"/Logo.png"}
           width={50}
           height={50}
           alt="TerraQuest Logo"
